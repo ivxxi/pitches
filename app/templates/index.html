@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+
+{% block styles%}
+    {{ super() }} <!--super() function tells Jinja not to override any code that is defined in the block-->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+{% block content %}
+<br>
+
+<div class="home text-center " style="margin-top:10%; ">
+    <h1>THIS IS PITCH</h1>
+    <p>You have 60 seconds to impress someone. 1 minute can make or break you.</p>
+    <p>Create a pitch, post it and impress someone.</p>
+     <br> <br>
+</div>
+
+<hr>
+
+<div class="home text-center ">
+    <br>
+    <br>
+    <button  href="/add/category" type="button" class="btn btn-info">ADD CATEGORY </button>
+     <br> <br>
+    <hr>
+    <br>
+    <br>
+     <h2> PITCH CATEGORIES </h2>
+     <ul>{{ macro.displayCategoryList(category) }} <ul>
+     <br>
+     <br>
+</div>
+
+
+{% endblock  %}
